@@ -12,9 +12,9 @@ const MetricsSummary = () => {
         {metrics.map(({ value, label }) => (
           <div
             key={label}
-            className="p-6 sm:p-8 bg-white rounded-xl border border-gray-100 flex flex-col gap-1.5 items-center justify-center shadow-sm"
+            className="h-36 p-6 sm:p-8 bg-white rounded-xl border border-gray-100 flex flex-col items-center justify-center shadow-sm"
           >
-            <h2 className="text-3xl sm:text-4xl text-primary font-semibold">
+            <h2 className="text-3xl sm:text-4xl text-primary font-semibold mb-1.5">
               {value}
             </h2>
             <h3 className="text-sm sm:text-base text-muted text-center">
