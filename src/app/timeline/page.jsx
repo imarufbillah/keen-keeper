@@ -1,31 +1,5 @@
-import { PhoneCall, MessageSquare, Video, Users } from "lucide-react";
 import TimelineControls from "@/components/layout/timeline/TimelineControls";
-import TimelineCard from "@/components/layout/timeline/TimelineCard";
-
-const interactionIconMap = {
-  meetup: <Users size={22} strokeWidth={1.5} />,
-  call: <PhoneCall size={22} strokeWidth={1.5} />,
-  text: <MessageSquare size={22} strokeWidth={1.5} />,
-  video: <Video size={22} strokeWidth={1.5} />,
-};
-
-const timelineItems = [
-  {
-    type: "call",
-    friend: "Tom Baker",
-    date: "March 29, 2026",
-  },
-  {
-    type: "text",
-    friend: "Tom Baker",
-    date: "March 29, 2026",
-  },
-  {
-    type: "video",
-    friend: "Tom Baker",
-    date: "March 29, 2026",
-  },
-];
+import RenderTimelineCards from "@/components/layout/timeline/RenderTimelineCards";
 
 const Timeline = () => {
   return (
@@ -45,14 +19,7 @@ const Timeline = () => {
         <TimelineControls />
 
         {/* Timeline Cards */}
-        <div className="flex flex-col gap-3">
-          {timelineItems.map((item, i) => {
-            const icon =
-              interactionIconMap[item.type] ?? interactionIconMap.text;
-
-            return <TimelineCard key={i} item={item} icon={icon} />;
-          })}
-        </div>
+        <RenderTimelineCards />
       </div>
     </section>
   );

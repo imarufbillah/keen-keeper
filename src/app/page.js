@@ -4,7 +4,7 @@ import FriendsLoadingSkeleton from "@/components/layout/home/friends/FriendsLoad
 import Hero from "@/components/layout/home/Hero";
 import MetricsSummary from "@/components/layout/home/MetricsSummary";
 
-export default function Home() {
+const Home = async () => {
   return (
     <>
       <Hero />
@@ -14,4 +14,6 @@ export default function Home() {
       </Suspense>
     </>
   );
-}
+};
+
+export default Home;

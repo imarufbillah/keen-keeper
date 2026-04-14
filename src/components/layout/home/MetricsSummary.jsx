@@ -1,7 +1,21 @@
-const MetricsSummary = async () => {
-  // Get friends data from friends.json
-  const res = await fetch("http://localhost:3000/friends.json");
-  const friends = await res.json();
+"use client";
+
+import { FriendsContext } from "@/context/FriendsContext";
+import { useContext, useEffect, useState } from "react";
+
+const MetricsSummary = () => {
+  const [friends, setFriends] = useState([]);
+
+  // Fetch data on mount
+  useEffect(() => {
+    const loadFriendsData = async () => {
+      const res = await fetch("http://localhost:3000/friends.json");
+      const data = await res.json();
+      setFriends(data);
+    };
+
+    loadFriendsData();
+  }, []);
 
   // On Track count
   const onTrackCount = friends.filter(
@@ -13,11 +27,14 @@ const MetricsSummary = async () => {
     (friend) => friend.status === "overdue",
   ).length;
 
+  // Interaction count
+  const { interactions } = useContext(FriendsContext);
+
   const metrics = [
     { value: `${friends.length}`, label: "Total Friends" },
     { value: `${onTrackCount}`, label: "On Track" },
     { value: `${needAttentionCount}`, label: "Need Attention" },
-    { value: "NaN", label: "Interactions This Month" },
+    { value: `${interactions.length}`, label: "Interactions This Month" },
   ];
 
   return (

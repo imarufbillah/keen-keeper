@@ -9,6 +9,7 @@ import {
   History,
 } from "lucide-react";
 import NotFound from "../not-found";
+import CheckInButtons from "@/components/layout/friends/CheckInButtons";
 
 const FriendDetails = async ({ params }) => {
   const { slug } = await params;
@@ -49,12 +50,6 @@ const FriendDetails = async ({ params }) => {
     "almost due": "bg-[#FEF3C7] text-amber-700",
     "on-track": "bg-[#CBFADB] text-primary",
   };
-
-  const checkInActions = [
-    { label: "Call", icon: <PhoneCall size={24} strokeWidth={1.5} /> },
-    { label: "Text", icon: <MessageSquare size={24} strokeWidth={1.5} /> },
-    { label: "Video", icon: <Video size={24} strokeWidth={1.5} /> },
-  ];
 
   const sidebarActions = [
     {
@@ -109,6 +104,7 @@ const FriendDetails = async ({ params }) => {
                 width={96}
                 height={96}
                 className="w-full h-full object-cover"
+                loading="eager"
               />
             </div>
 
@@ -203,17 +199,7 @@ const FriendDetails = async ({ params }) => {
             <h2 className="text-base font-semibold text-primary mb-4">
               Quick Check-In
             </h2>
-            <div className="grid grid-cols-3 gap-3">
-              {checkInActions.map(({ label, icon }) => (
-                <button
-                  key={label}
-                  className="flex flex-col items-center justify-center gap-2 py-5 rounded-lg border border-gray-200 text-sm font-medium text-heading hover:bg-gray-50 hover:border-gray-300 transition-colors"
-                >
-                  {icon}
-                  {label}
-                </button>
-              ))}
-            </div>
+            <CheckInButtons friendName={name} />
           </div>
 
           {/* Recent Interactions */}
