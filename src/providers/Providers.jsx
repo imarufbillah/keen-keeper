@@ -10,22 +10,24 @@ const Providers = ({ children }) => {
     {
       type: "call",
       friend: "Tom Baker",
-      description: "Had a phone call for project follow-up",
+      note: "Had a phone call for project follow-up",
       date: "March 29, 2026",
     },
     {
       type: "text",
       friend: "Sarah Chen",
-      description: "Discussed career growth opportunities",
+      note: "Discussed career growth opportunities",
       date: "March 25, 2026",
     },
     {
       type: "video",
       friend: "Olivia Martinez",
-      description: "Joined a virtual project meeting",
+      note: "Joined a virtual project meeting",
       date: "March 22, 2026",
     },
   ]);
+
+  const [friendInteractions, setFriendInteractions] = useState([]);
 
   const value = {
     interactions,

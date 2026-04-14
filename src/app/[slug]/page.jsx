@@ -1,15 +1,8 @@
 import Image from "next/image";
-import {
-  BellOff,
-  Archive,
-  Trash2,
-  PhoneCall,
-  MessageSquare,
-  Video,
-  History,
-} from "lucide-react";
+import { BellOff, Archive, Trash2, History } from "lucide-react";
 import NotFound from "../not-found";
 import CheckInButtons from "@/components/layout/friends/CheckInButtons";
+import RenderInteractionCards from "@/components/layout/friends/RenderInteractionCards";
 
 const FriendDetails = async ({ params }) => {
   const { slug } = await params;
@@ -35,7 +28,6 @@ const FriendDetails = async ({ params }) => {
     days_since_contact,
     goal,
     next_due_date,
-    interactions,
   } = friend;
 
   // Format next due date
@@ -68,26 +60,6 @@ const FriendDetails = async ({ params }) => {
       className: "text-red-500",
     },
   ];
-
-  // Icon map for interaction types
-  const interactionIconMap = {
-    text: (
-      <MessageSquare
-        size={20}
-        strokeWidth={1.5}
-        className="text-muted shrink-0"
-      />
-    ),
-    call: (
-      <PhoneCall size={20} strokeWidth={1.5} className="text-muted shrink-0" />
-    ),
-    video: (
-      <Video size={20} strokeWidth={1.5} className="text-muted shrink-0" />
-    ),
-    meetup: (
-      <PhoneCall size={20} strokeWidth={1.5} className="text-muted shrink-0" />
-    ),
-  };
 
   return (
     <section className="pt-14 md:pt-20 pb-10">
@@ -214,46 +186,8 @@ const FriendDetails = async ({ params }) => {
               </button>
             </div>
 
-            {interactions && interactions.length > 0 ? (
-              <div className="flex flex-col divide-y divide-gray-100">
-                {interactions.map((interaction, i) => {
-                  const icon =
-                    interactionIconMap[interaction.type?.toLowerCase()] ??
-                    interactionIconMap.text;
-
-                  const formattedDate = new Date(
-                    interaction.date,
-                  ).toLocaleDateString("en-US", {
-                    month: "short",
-                    day: "numeric",
-                    year: "numeric",
-                  });
-
-                  return (
-                    <div key={i} className="flex items-center gap-4 py-4">
-                      {icon}
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-heading capitalize">
-                          {interaction.type}
-                        </p>
-                        {interaction.note && (
-                          <p className="text-xs text-muted truncate">
-                            {interaction.note}
-                          </p>
-                        )}
-                      </div>
-                      <span className="text-xs text-muted shrink-0">
-                        {formattedDate}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-            ) : (
-              <p className="text-sm text-muted">
-                No interactions recorded yet.
-              </p>
-            )}
+            {/* Render Interaction Card */}
+            <RenderInteractionCards friend={friend} />
           </div>
         </div>
       </div>

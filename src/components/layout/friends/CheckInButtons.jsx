@@ -26,7 +26,7 @@ const CheckInButtons = ({ friendName }) => {
     const newInteraction = {
       type,
       friend: friendName,
-      description:
+      note:
         type === "call"
           ? "Had a phone call for project follow-up"
           : type === "text"
