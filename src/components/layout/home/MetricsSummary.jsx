@@ -1,8 +1,22 @@
-const MetricsSummary = () => {
+const MetricsSummary = async () => {
+  // Get friends data from friends.json
+  const res = await fetch("http://localhost:3000/friends.json");
+  const friends = await res.json();
+
+  // On Track count
+  const onTrackCount = friends.filter(
+    (friend) => friend.status === "on-track",
+  ).length;
+
+  // Need Attention count
+  const needAttentionCount = friends.filter(
+    (friend) => friend.status === "overdue",
+  ).length;
+
   const metrics = [
-    { value: "NaN", label: "Total Friends" },
-    { value: "NaN", label: "On Track" },
-    { value: "NaN", label: "Need Attention" },
+    { value: `${friends.length}`, label: "Total Friends" },
+    { value: `${onTrackCount}`, label: "On Track" },
+    { value: `${needAttentionCount}`, label: "Need Attention" },
     { value: "NaN", label: "Interactions This Month" },
   ];
 
