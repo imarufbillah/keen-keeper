@@ -5,7 +5,7 @@ const Hero = () => {
     <section className="pt-14 md:pt-20 pb-10">
       <div className="container mx-auto px-4 sm:px-6 flex flex-col gap-5 items-center text-center">
         {/* Heading */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-heading font-extrabold leading-tight tracking-tight max-w-3xl">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-heading font-extrabold leading-tight tracking-tight">
           Friends to keep close in your life
         </h1>
 

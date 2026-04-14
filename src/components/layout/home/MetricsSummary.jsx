@@ -7,12 +7,12 @@ const MetricsSummary = () => {
   ];
 
   return (
-    <section className="pb-10">
-      <div className="container mx-auto px-4 sm:px-6 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+    <section className="container mx-auto px-4 sm:px-6 space-y-10">
+      <div className=" grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {metrics.map(({ value, label }) => (
           <div
             key={label}
-            className="h-36 p-6 sm:p-8 bg-white rounded-xl border border-gray-100 flex flex-col items-center justify-center shadow-sm"
+            className="h-36 p-6 sm:p-8 bg-white rounded-xl border border-[#E9E9E9] flex flex-col items-center justify-center shadow-sm"
           >
             <h2 className="text-3xl sm:text-4xl text-primary font-semibold mb-1.5">
               {value}
@@ -23,6 +23,7 @@ const MetricsSummary = () => {
           </div>
         ))}
       </div>
+      <hr className="text-[#E9E9E9]" />
     </section>
   );
 };
