@@ -17,12 +17,16 @@ const Providers = ({ children }) => {
   // Fetch data on mount
   useEffect(() => {
     const loadFriendsData = async () => {
-      const res = await fetch("http://localhost:3000/friends.json");
+      const res = await fetch(
+        "http://keen-keeper-by-marufbillah.vercel.app/friends.json",
+      );
       const data = await res.json();
       setFriends(data);
     };
     const loadInteractionsData = async () => {
-      const res = await fetch("http://localhost:3000/interactions.json");
+      const res = await fetch(
+        "http://keen-keeper-by-marufbillah.vercel.app/interactions.json",
+      );
       const data = await res.json();
       setInteractions(data);
     };

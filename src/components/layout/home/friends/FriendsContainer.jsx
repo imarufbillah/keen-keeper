@@ -2,7 +2,9 @@ import FriendCard from "@/components/layout/home/friends/FriendCard";
 
 const FriendsContainer = async () => {
   // Get friends data from friends.json
-  const res = await fetch("http://localhost:3000/friends.json");
+  const res = await fetch(
+    "http://keen-keeper-by-marufbillah.vercel.app/friends.json",
+  );
   const friends = await res.json();
 
   return (

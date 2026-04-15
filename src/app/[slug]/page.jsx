@@ -6,7 +6,9 @@ import RenderInteractionCards from "@/components/layout/friends/RenderInteractio
 
 export const generateMetadata = async ({ params }) => {
   const { slug } = await params;
-  const res = await fetch("http://localhost:3000/friends.json");
+  const res = await fetch(
+    "http://keen-keeper-by-marufbillah.vercel.app/friends.json",
+  );
   const friends = await res.json();
   const friend = friends.find((f) => f.id === Number(slug));
 
@@ -27,7 +29,9 @@ const FriendDetails = async ({ params }) => {
   const { slug } = await params;
 
   // Get friends data from friends.json
-  const res = await fetch("http://localhost:3000/friends.json");
+  const res = await fetch(
+    "http://keen-keeper-by-marufbillah.vercel.app/friends.json",
+  );
   const friends = await res.json();
 
   // Filter expected friend data
