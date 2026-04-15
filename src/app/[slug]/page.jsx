@@ -3,13 +3,17 @@ import { BellOff, Archive, Trash2, History } from "lucide-react";
 import NotFound from "../not-found";
 import CheckInButtons from "@/components/layout/friends/CheckInButtons";
 import RenderInteractionCards from "@/components/layout/friends/RenderInteractionCards";
+import fs from "fs";
+import path from "path";
+
+const getFriends = () => {
+  const filePath = path.join(process.cwd(), "public", "friends.json");
+  return JSON.parse(fs.readFileSync(filePath, "utf-8"));
+};
 
 export const generateMetadata = async ({ params }) => {
   const { slug } = await params;
-  const res = await fetch(
-    "http://keen-keeper-by-marufbillah.vercel.app/friends.json",
-  );
-  const friends = await res.json();
+  const friends = getFriends();
   const friend = friends.find((f) => f.id === Number(slug));
 
   if (!friend) {
@@ -28,11 +32,8 @@ export const generateMetadata = async ({ params }) => {
 const FriendDetails = async ({ params }) => {
   const { slug } = await params;
 
-  // Get friends data from friends.json
-  const res = await fetch(
-    "http://keen-keeper-by-marufbillah.vercel.app/friends.json",
-  );
-  const friends = await res.json();
+  // Read friends data directly from the filesystem (works at build time)
+  const friends = getFriends();
 
   // Filter expected friend data
   const friend = friends.find((f) => f.id === Number(slug));

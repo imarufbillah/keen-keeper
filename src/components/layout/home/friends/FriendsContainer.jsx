@@ -1,11 +1,11 @@
 import FriendCard from "@/components/layout/home/friends/FriendCard";
+import fs from "fs";
+import path from "path";
 
 const FriendsContainer = async () => {
-  // Get friends data from friends.json
-  const res = await fetch(
-    "http://keen-keeper-by-marufbillah.vercel.app/friends.json",
-  );
-  const friends = await res.json();
+  // Read friends data directly from the filesystem (works at build time)
+  const filePath = path.join(process.cwd(), "public", "friends.json");
+  const friends = JSON.parse(fs.readFileSync(filePath, "utf-8"));
 
   return (
     <section className="pt-10 pb-20">
