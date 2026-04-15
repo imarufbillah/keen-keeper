@@ -1,6 +1,7 @@
 "use client";
 
 import ChartCard from "@/components/layout/stats/ChartCard";
+import { FriendsContext } from "@/context/FriendsContext";
 import {
   PhoneCall,
   MessageSquare,
@@ -8,53 +9,78 @@ import {
   Users,
   TrendingUp,
 } from "lucide-react";
-
-const summaryCards = [
-  {
-    label: "Total Friends",
-    value: 12,
-    icon: <Users size={20} strokeWidth={1.5} />,
-    color: "text-primary bg-primary/10",
-  },
-  {
-    label: "Total Interactions",
-    value: 48,
-    icon: <TrendingUp size={20} strokeWidth={1.5} />,
-    color: "text-violet-600 bg-violet-100",
-  },
-  {
-    label: "Calls Made",
-    value: 14,
-    icon: <PhoneCall size={20} strokeWidth={1.5} />,
-    color: "text-emerald-600 bg-emerald-100",
-  },
-  {
-    label: "Texts Sent",
-    value: 21,
-    icon: <MessageSquare size={20} strokeWidth={1.5} />,
-    color: "text-violet-600 bg-violet-100",
-  },
-  {
-    label: "Video Calls",
-    value: 13,
-    icon: <Video size={20} strokeWidth={1.5} />,
-    color: "text-primary bg-primary/10",
-  },
-];
-
-const interactionBreakdown = [
-  { label: "Text", count: 21, color: "#7c3aed" },
-  { label: "Call", count: 14, color: "#244d3f" },
-  { label: "Video", count: 13, color: "#10b981" },
-];
-
-const statusBreakdown = [
-  { label: "On-track", count: 4, color: "#10b981" },
-  { label: "Almost Due", count: 4, color: "#f59e0b" },
-  { label: "Overdue", count: 4, color: "#ef4444" },
-];
+import { useContext } from "react";
 
 const StatsPage = () => {
+  const { interactions, friends } = useContext(FriendsContext);
+
+  // Data: By Interaction Type
+  const text = interactions.filter(
+    (interact) => interact.type === "text",
+  ).length;
+  const call = interactions.filter(
+    (interact) => interact.type === "call",
+  ).length;
+  const video = interactions.filter(
+    (interact) => interact.type === "video",
+  ).length;
+
+  // Data: By Friendship Status
+  const onTrack = friends.filter(
+    (friend) => friend.status === "on-track",
+  ).length;
+  const almostDue = friends.filter(
+    (friend) => friend.status === "almost due",
+  ).length;
+  const overdue = friends.filter(
+    (friend) => friend.status === "overdue",
+  ).length;
+
+  const summaryCards = [
+    {
+      label: "Total Friends",
+      value: friends.length,
+      icon: <Users size={20} strokeWidth={1.5} />,
+      color: "text-primary bg-primary/10",
+    },
+    {
+      label: "Total Interactions",
+      value: interactions.length,
+      icon: <TrendingUp size={20} strokeWidth={1.5} />,
+      color: "text-violet-600 bg-violet-100",
+    },
+    {
+      label: "Calls Made",
+      value: call,
+      icon: <PhoneCall size={20} strokeWidth={1.5} />,
+      color: "text-emerald-600 bg-emerald-100",
+    },
+    {
+      label: "Texts Sent",
+      value: text,
+      icon: <MessageSquare size={20} strokeWidth={1.5} />,
+      color: "text-violet-600 bg-violet-100",
+    },
+    {
+      label: "Video Calls",
+      value: video,
+      icon: <Video size={20} strokeWidth={1.5} />,
+      color: "text-primary bg-primary/10",
+    },
+  ];
+
+  const interactionBreakdown = [
+    { label: "Text", count: text, color: "#7c3aed" },
+    { label: "Call", count: call, color: "#244d3f" },
+    { label: "Video", count: video, color: "#10b981" },
+  ];
+
+  const statusBreakdown = [
+    { label: "On-track", count: onTrack, color: "#10b981" },
+    { label: "Almost Due", count: almostDue, color: "#f59e0b" },
+    { label: "Overdue", count: overdue, color: "#ef4444" },
+  ];
+
   return (
     <section className="pt-14 md:pt-20 pb-10">
       <div className="container mx-auto px-4 sm:px-6 space-y-6">

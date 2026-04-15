@@ -1,0 +1,176 @@
+[
+  {
+    "type": "call",
+    "friend": "Ethan Carter",
+    "note": "Quick catch-up about an old project",
+    "date": "March 29, 2026"
+  },
+  {
+    "type": "text",
+    "friend": "Ethan Carter",
+    "note": "Sent a helpful GitHub repo",
+    "date": "March 18, 2026"
+  },
+  {
+    "type": "text",
+    "friend": "Sophia Bennett",
+    "note": "Talked about career plans",
+    "date": "April 3, 2026"
+  },
+  {
+    "type": "video",
+    "friend": "Sophia Bennett",
+    "note": "Late night virtual chat",
+    "date": "March 21, 2026"
+  },
+  {
+    "type": "text",
+    "friend": "Sophia Bennett",
+    "note": "Shared an interesting article",
+    "date": "March 15, 2026"
+  },
+  {
+    "type": "video",
+    "friend": "Liam Parker",
+    "note": "Virtual workout session",
+    "date": "April 10, 2026"
+  },
+  {
+    "type": "call",
+    "friend": "Olivia Turner",
+    "note": "Discussed freelance design work",
+    "date": "March 26, 2026"
+  },
+  {
+    "type": "video",
+    "friend": "Olivia Turner",
+    "note": "Reviewed UI concepts together",
+    "date": "March 19, 2026"
+  },
+  {
+    "type": "text",
+    "friend": "Noah Mitchell",
+    "note": "Brainstormed startup ideas",
+    "date": "April 7, 2026"
+  },
+  {
+    "type": "call",
+    "friend": "Noah Mitchell",
+    "note": "Talked about AI trends",
+    "date": "April 1, 2026"
+  },
+  {
+    "type": "text",
+    "friend": "Noah Mitchell",
+    "note": "Shared a tech newsletter",
+    "date": "March 24, 2026"
+  },
+  {
+    "type": "video",
+    "friend": "Noah Mitchell",
+    "note": "Quick pitch practice",
+    "date": "March 20, 2026"
+  },
+  {
+    "type": "video",
+    "friend": "Ava Collins",
+    "note": "Planned a short trip",
+    "date": "April 12, 2026"
+  },
+  {
+    "type": "text",
+    "friend": "Ava Collins",
+    "note": "Sent travel inspiration",
+    "date": "April 6, 2026"
+  },
+  {
+    "type": "text",
+    "friend": "Lucas Reed",
+    "note": "Talked about a new game update",
+    "date": "April 13, 2026"
+  },
+  {
+    "type": "video",
+    "friend": "Lucas Reed",
+    "note": "Played co-op online",
+    "date": "April 11, 2026"
+  },
+  {
+    "type": "call",
+    "friend": "Lucas Reed",
+    "note": "Voice chat during match",
+    "date": "April 9, 2026"
+  },
+  {
+    "type": "text",
+    "friend": "Lucas Reed",
+    "note": "Shared game highlights",
+    "date": "April 2, 2026"
+  },
+  {
+    "type": "call",
+    "friend": "Mia Foster",
+    "note": "Checked in about family",
+    "date": "March 28, 2026"
+  },
+  {
+    "type": "video",
+    "friend": "James Walker",
+    "note": "Watched football together",
+    "date": "April 5, 2026"
+  },
+  {
+    "type": "text",
+    "friend": "James Walker",
+    "note": "Discussed match results",
+    "date": "April 3, 2026"
+  },
+  {
+    "type": "text",
+    "friend": "Emily Hayes",
+    "note": "Shared book recommendations",
+    "date": "April 11, 2026"
+  },
+  {
+    "type": "video",
+    "friend": "Emily Hayes",
+    "note": "Book club discussion",
+    "date": "April 6, 2026"
+  },
+  {
+    "type": "call",
+    "friend": "Emily Hayes",
+    "note": "Talked about a novel ending",
+    "date": "March 30, 2026"
+  },
+  {
+    "type": "call",
+    "friend": "Daniel Brooks",
+    "note": "Discussed backend issues",
+    "date": "March 30, 2026"
+  },
+  {
+    "type": "text",
+    "friend": "Daniel Brooks",
+    "note": "Shared debugging tips",
+    "date": "March 27, 2026"
+  },
+  {
+    "type": "video",
+    "friend": "Chloe Morgan",
+    "note": "Art feedback session",
+    "date": "April 8, 2026"
+  },
+  {
+    "type": "text",
+    "friend": "Chloe Morgan",
+    "note": "Sent new artwork",
+    "date": "April 4, 2026"
+  },
+  {
+    "type": "text",
+    "friend": "Chloe Morgan",
+    "note": "Discussed creative ideas",
+    "date": "March 29, 2026"
+  }
+]

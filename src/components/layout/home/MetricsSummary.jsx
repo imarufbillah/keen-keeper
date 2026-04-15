@@ -1,21 +1,10 @@
 "use client";
 
 import { FriendsContext } from "@/context/FriendsContext";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 
 const MetricsSummary = () => {
-  const [friends, setFriends] = useState([]);
-
-  // Fetch data on mount
-  useEffect(() => {
-    const loadFriendsData = async () => {
-      const res = await fetch("http://localhost:3000/friends.json");
-      const data = await res.json();
-      setFriends(data);
-    };
-
-    loadFriendsData();
-  }, []);
+  const { friends } = useContext(FriendsContext);
 
   // On Track count
   const onTrackCount = friends.filter(
