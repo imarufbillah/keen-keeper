@@ -1,6 +1,12 @@
 import TimelineControls from "@/components/layout/timeline/TimelineControls";
 import RenderTimelineCards from "@/components/layout/timeline/RenderTimelineCards";
 
+export const metadata = {
+  title: "Timeline | KeenKeeper — Full Interaction History",
+  description:
+    "Browse a chronological log of every interaction across all your friends. Filter, search, and reflect on your connections.",
+};
+
 const Timeline = () => {
   return (
     <section className="pt-14 md:pt-20 pb-10">

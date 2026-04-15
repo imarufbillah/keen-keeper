@@ -8,15 +8,12 @@ const geist = Geist({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "Home | KeenKeeper — Friends to keep close in your life",
-  description:
-    "Your personal shelf of meaningful connections. Browse, tend, and nurture the relationships that matter most.",
-};
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geist.className} antialiased`}>
+      <head>
+        <title>KeenKeeper</title>
+      </head>
       <body suppressHydrationWarning>
         <Providers>
           <Navbar />

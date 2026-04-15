@@ -4,6 +4,25 @@ import NotFound from "../not-found";
 import CheckInButtons from "@/components/layout/friends/CheckInButtons";
 import RenderInteractionCards from "@/components/layout/friends/RenderInteractionCards";
 
+export const generateMetadata = async ({ params }) => {
+  const { slug } = await params;
+  const res = await fetch("http://localhost:3000/friends.json");
+  const friends = await res.json();
+  const friend = friends.find((f) => f.id === Number(slug));
+
+  if (!friend) {
+    return {
+      title: "Friend Not Found | KeenKeeper",
+      description: "This friend profile doesn't exist.",
+    };
+  }
+
+  return {
+    title: `${friend.name} | KeenKeeper`,
+    description: `View your connection with ${friend.name}. Check interaction history, relationship goal, and stay in touch.`,
+  };
+};
+
 const FriendDetails = async ({ params }) => {
   const { slug } = await params;
 
