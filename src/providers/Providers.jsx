@@ -7,8 +7,12 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Providers = ({ children }) => {
   const [interactions, setInteractions] = useState([]);
-
   const [friends, setFriends] = useState([]);
+
+  // Timeline controls
+  const [timelineFilter, setTimelineFilter] = useState("all");
+  const [timelineSort, setTimelineSort] = useState("default");
+  const [timelineSearch, setTimelineSearch] = useState("");
 
   // Fetch data on mount
   useEffect(() => {
@@ -32,6 +36,12 @@ const Providers = ({ children }) => {
     setInteractions,
     friends,
     setFriends,
+    timelineFilter,
+    setTimelineFilter,
+    timelineSort,
+    setTimelineSort,
+    timelineSearch,
+    setTimelineSearch,
   };
   return (
     <FriendsContext.Provider value={value}>

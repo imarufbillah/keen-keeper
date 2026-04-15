@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useContext } from "react";
 import { Search } from "lucide-react";
 import Dropdown from "@/components/ui/Dropdown";
+import { FriendsContext } from "@/context/FriendsContext";
 
 const filterOptions = [
   { value: "all", label: "All" },
@@ -18,8 +19,14 @@ const sortOptions = [
 ];
 
 const TimelineControls = () => {
-  const [filter, setFilter] = useState("all");
-  const [sort, setSort] = useState("default");
+  const {
+    timelineFilter,
+    setTimelineFilter,
+    timelineSort,
+    setTimelineSort,
+    timelineSearch,
+    setTimelineSearch,
+  } = useContext(FriendsContext);
 
   return (
     <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-4 sm:p-5 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
@@ -27,8 +34,8 @@ const TimelineControls = () => {
       <Dropdown
         label="Filter by:"
         options={filterOptions}
-        value={filter}
-        onChange={setFilter}
+        value={timelineFilter}
+        onChange={setTimelineFilter}
       />
 
       <div className="flex flex-col-reverse sm:flex-row gap-3 sm:items-center">
@@ -42,6 +49,8 @@ const TimelineControls = () => {
             type="search"
             name="search"
             placeholder="Search timeline..."
+            value={timelineSearch}
+            onChange={(e) => setTimelineSearch(e.target.value)}
             className="text-sm text-heading border border-gray-200 rounded-md pl-8 pr-3 py-1.5 bg-white placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors w-full sm:w-52"
           />
         </div>
@@ -50,8 +59,8 @@ const TimelineControls = () => {
         <Dropdown
           label="Sort by:"
           options={sortOptions}
-          value={sort}
-          onChange={setSort}
+          value={timelineSort}
+          onChange={setTimelineSort}
         />
       </div>
     </div>
