@@ -64,7 +64,7 @@ const FriendDetails = async ({ params }) => {
   const statusStyles = {
     overdue: "bg-[#FEE2E2] text-red-600",
     "almost due": "bg-[#FEF3C7] text-amber-700",
-    "on-track": "bg-[#CBFADB] text-primary",
+    "on-track": "bg-primary text-white",
   };
 
   const sidebarActions = [

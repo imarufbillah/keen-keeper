@@ -44,7 +44,7 @@ const FriendCard = ({ friend }) => {
           {/* Status */}
           <div className="">
             <span
-              className={`px-2.5 py-1 rounded-full text-xs font-medium capitalize ${status === "overdue" ? "bg-[#FEE2E2] text-red-600" : status === "almost due" ? "bg-[#FEF3C7] text-amber-700" : "bg-[#CBFADB] text-primary"}`}
+              className={`px-2.5 py-1 rounded-full text-xs font-medium capitalize ${status === "overdue" ? "bg-[#FEE2E2] text-red-600" : status === "almost due" ? "bg-[#FEF3C7] text-amber-700" : "bg-primary text-white"}`}
             >
               {status}
             </span>
