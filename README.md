@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# KeenKeeper
 
-## Getting Started
+**KeenKeeper** is a personal relationship manager that helps you stay intentional about the friendships that matter most. Track interactions, monitor connection health, and get a clear picture of who you've been keeping in touch with — and who might need a little more attention.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Tech Stack
+
+| Technology                                                 | Role                         |
+| ---------------------------------------------------------- | ---------------------------- |
+| [Next.js 16](https://nextjs.org)                           | React framework (App Router) |
+| [React 19](https://react.dev)                              | UI library                   |
+| [Tailwind CSS 4](https://tailwindcss.com)                  | Styling                      |
+| [Recharts](https://recharts.org)                           | Data visualization           |
+| [Lucide React](https://lucide.dev)                         | Icon set                     |
+| [React Toastify](https://fkhadra.github.io/react-toastify) | Toast notifications          |
+
+---
+
+## Key Features
+
+### 🗂 Friend Dashboard
+
+Browse your full circle at a glance. Each friend card shows their current connection status — **On Track**, **Almost Due**, or **Overdue** — so you always know who deserves a message.
+
+### 📅 Interaction Timeline
+
+A chronological log of every call, text, and video chat across all your friends. Filter by interaction type, sort by date, and search by name or note to find exactly what you're looking for.
+
+### 📊 Friendship Analytics
+
+Visual breakdowns of your interaction habits — see how your time is split across calls, texts, and video chats, and get a health snapshot of your entire friendship circle in one view.
+
+---
+
+## Project Structure
+
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+src/
+├── app/                  # Next.js App Router pages
+│   ├── page.js           # Home / friend dashboard
+│   ├── timeline/         # Interaction timeline
+│   ├── stats/            # Friendship analytics
+│   └── [slug]/           # Individual friend profile
+├── components/
+│   ├── layout/           # Page-level components
+│   └── ui/               # Reusable UI primitives
+├── context/              # React context (FriendsContext)
+└── providers/            # App-wide providers
+public/
+├── friends.json          # Friend data
+└── interactions.json     # Interaction history
+```
