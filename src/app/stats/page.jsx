@@ -1,4 +1,6 @@
+import { Suspense } from "react";
 import StatsClient from "./StatsClient";
+import StatsLoadingSkeleton from "@/components/layout/stats/StatsLoadingSkeleton";
 
 export const metadata = {
   title: "Analytics | KeenKeeper — Friendship Insights",
@@ -7,7 +9,11 @@ export const metadata = {
 };
 
 const StatsPage = () => {
-  return <StatsClient />;
+  return (
+    <Suspense fallback={<StatsLoadingSkeleton />}>
+      <StatsClient />
+    </Suspense>
+  );
 };
 
 export default StatsPage;
