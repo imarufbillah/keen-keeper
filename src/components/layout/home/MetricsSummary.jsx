@@ -2,6 +2,7 @@
 
 import { FriendsContext } from "@/context/FriendsContext";
 import { useContext } from "react";
+import MetricsSummarySkeleton from "./MetricsSummarySkeleton";
 
 const MetricsSummary = () => {
   const { friends } = useContext(FriendsContext);
@@ -18,6 +19,11 @@ const MetricsSummary = () => {
 
   // Interaction count
   const { interactions } = useContext(FriendsContext);
+
+  // Show skeleton while data is still being fetched
+  if (friends.length === 0 && interactions.length === 0) {
+    return <MetricsSummarySkeleton />;
+  }
 
   const metrics = [
     { value: `${friends.length}`, label: "Total Friends" },
